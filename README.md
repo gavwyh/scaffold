@@ -6,6 +6,16 @@
 
 ## About scaffold
 
+How to use
+
+- Default dev (sanitizers and linters on):
+```
+./build.sh nofast
+```
+- Fast iteration (sanitizers/linters off):
+```
+./build.sh fast
+```
 
 
 ## More Details

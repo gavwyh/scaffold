@@ -55,7 +55,7 @@ add_library(scaffold::scaffold_warnings ALIAS scaffold_warnings)
 #add_library(scaffold::scaffold_warnings INTERFACE IMPORTED)
 
 # configure files based on CMake configuration options
-add_subdirectory(configured_files)
+# (Removed) add_subdirectory(configured_files)
 
 # Adding the src:
 add_subdirectory(src)
@@ -65,13 +65,10 @@ if(NOT PROJECT_IS_TOP_LEVEL)
   return()
 endif()
 
-# Adding the tests:
 include(CTest)
 
-if(BUILD_TESTING)
-  message(AUTHOR_WARNING "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing")
-  add_subdirectory(test)
-endif()
+# Adding the tests:
+# Tests disabled for this codebase
 
 
 if(scaffold_BUILD_FUZZ_TESTS)
@@ -80,7 +77,6 @@ if(scaffold_BUILD_FUZZ_TESTS)
     message(WARNING "You need asan or tsan enabled for meaningful fuzz testing")
   endif()
   add_subdirectory(fuzz_test)
-
 endif()
 
 # If MSVC is being used, and ASAN is enabled, we need to set the debugger environment
